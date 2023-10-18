@@ -21,6 +21,7 @@ export class MainComponent {
   name: string | undefined;
   services: string | undefined;
 
+  matdate: Date | undefined;
   phone: number | undefined;
   constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>) {}
 
