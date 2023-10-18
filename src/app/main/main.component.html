@@ -1,0 +1,72 @@
+<span class=" text-center text-primary pd-2">
+  <h2>Booking Appointments <i class="fa fa-calendar" aria-hidden="true"></i></h2>
+</span>
+
+<div class="col-12">
+
+<!-- main section -->
+  <!-- <div class="col-2 form-group">
+    <span>Name: </span>
+    <input type="text">
+  </div>
+  <div class="col">
+    <span class="label">Pick your date:</span>
+    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+  </div>
+  <div class="col">
+    <span class="label">Pick your time:</span>
+    <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+  </div> -->
+  <!-- close main section -->
+
+
+  <!-- test accordion -->
+  <div ngbAccordion>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Contact</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template>
+            <span>Name: </span>
+            <input type="text">
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Pick your date</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+            <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+        </div>
+      </div>
+    </div>
+    <div ngbAccordionItem>
+      <h2 ngbAccordionHeader>
+        <button ngbAccordionButton>Pick your time</button>
+      </h2>
+      <div ngbAccordionCollapse>
+        <div ngbAccordionBody>
+          <ng-template><ngb-timepicker [(ngModel)]="time"></ngb-timepicker></ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- close test accordion -->
+
+</div>
+<div class="col-12">
+  <hr />
+  <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
+  <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
+
+  <hr />
+</div>
+<div class="col-12">
+  <pre>Selected time: {{ time.hour }}:{{time.minute}}</pre>
+  <pre>Selected Date: {{ model?.month }}/{{ model?.day }} </pre>
+</div>
