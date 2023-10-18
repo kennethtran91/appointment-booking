@@ -3,34 +3,23 @@
 </span>
 
 <div class="col-12">
-
-<!-- main section -->
-  <!-- <div class="col-2 form-group">
-    <span>Name: </span>
-    <input type="text">
-  </div>
-  <div class="col">
-    <span class="label">Pick your date:</span>
-    <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
-  </div>
-  <div class="col">
-    <span class="label">Pick your time:</span>
-    <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
-  </div> -->
-  <!-- close main section -->
-
-
   <!-- test accordion -->
   <div ngbAccordion>
-    <div ngbAccordionItem>
+    <div ngbAccordionItem [collapsed]="false">
       <h2 ngbAccordionHeader>
         <button ngbAccordionButton>Contact</button>
       </h2>
       <div ngbAccordionCollapse>
         <div ngbAccordionBody>
           <ng-template>
-            <span>Name: </span>
-            <input type="text">
+            <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" [(ngModel)]="name" placeholder="Your name">
+              </div>
+              <div class="col">
+                <input type="tel" class="form-control" [(ngModel)]="phone" placeholder="Phone number">
+              </div>
+            </div>
           </ng-template>
         </div>
       </div>
@@ -41,7 +30,10 @@
       </h2>
       <div ngbAccordionCollapse>
         <div ngbAccordionBody>
-            <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+          <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+          <hr />
+          <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
         </div>
       </div>
     </div>
@@ -58,15 +50,21 @@
   </div>
   <!-- close test accordion -->
 
-</div>
-<div class="col-12">
-  <hr />
-  <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
-  <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
+  <!-- footer -->
+  <div class="row mt-3 mb-3">
 
-  <hr />
-</div>
-<div class="col-12">
-  <pre>Selected time: {{ time.hour }}:{{time.minute}}</pre>
-  <pre>Selected Date: {{ model?.month }}/{{ model?.day }} </pre>
+    <div class="col">
+      <button type="button" class="btn btn-primary">Submit</button>
+    </div>
+    <div class="col border">
+      <pre class="mb-3 mt-3 border-bottom">Booking Summary</pre>
+      <pre>Name: {{name}} </pre>
+      <pre>Phone: {{phone}} </pre>
+      <pre>Selected time: {{ time.hour }}:{{time.minute}}</pre>
+      <pre>Selected Date: {{ model?.month }}/{{ model?.day }} </pre>
+    </div>
+
+  </div>
+  <!-- footer -->
+
 </div>
