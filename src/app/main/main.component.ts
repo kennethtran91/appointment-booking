@@ -19,6 +19,8 @@ export class MainComponent {
   model: NgbDateStruct | undefined;
   time = { hour: 13, minute: 30 };
   name: string | undefined;
+  services: string | undefined;
+
   phone: number | undefined;
   constructor(private ngbCalendar: NgbCalendar, private dateAdapter: NgbDateAdapter<string>) {}
 
