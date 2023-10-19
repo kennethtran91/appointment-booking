@@ -1,5 +1,5 @@
-<span class=" text-center text-primary pd-2">
-  <h2>Booking Appointments <i class="fa fa-calendar" aria-hidden="true"></i></h2>
+<span class="text-center text-primary p-2">
+  <h1>Appointments Booking <i class="fa fa-calendar" aria-hidden="true"></i></h1>
 </span>
 
 <div class="col-12">
@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div ngbAccordionItem>
+    <div ngbAccordionItem [collapsed]="false">
       <h2 ngbAccordionHeader>
         <button ngbAccordionButton>Pick your time</button>
       </h2>
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div ngbAccordionItem>
+    <div ngbAccordionItem [collapsed]="false">
       <h2 ngbAccordionHeader>
         <button ngbAccordionButton>Services</button>
       </h2>
