@@ -10,8 +10,8 @@ My wife is a talented nail artist, and her schedule used to be a mess. She would
 
 One day, as I watched her struggle with her scheduling chaos, it dawned on me that there had to be a better way. I decided to take matters into my own hands and develop a solution to simplify her booking process.
 
-![Simple UI](https://imgur.com/wvHESVX)
-![Easy to use](https://imgur.com/MCI9LfK)
+![Simple UI](https://imgur.com/wvHESVX.png)
+![Easy to use](https://imgur.com/MCI9LfK.png)
 
 # Features
 
