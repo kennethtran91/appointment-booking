@@ -13,7 +13,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-MongoClient.connect(`mongodb://${config.dbHost}`, { useNewUrlParser: true, useUnifiedTopology: true })
+var url = process.env.MONGOLAB_URI;
+
+
+MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(client => {
     const db = client.db(config.dbName);
     const collection = db.collection(config.dbCollection);    
