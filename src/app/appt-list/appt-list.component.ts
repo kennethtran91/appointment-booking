@@ -10,8 +10,9 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class ApptListComponent implements OnInit {
   public appointments: Appointment[];
-  public columns = ['appointmentDate', 'name', 'email', 'cancel'];
+  public columns = ['appointmentDate', 'time', 'name', 'phone', 'services', 'cancel'];
   public loading = true;
+  public error = true;
   public errorMsg: string;
   public successMsg: string;
 
@@ -22,6 +23,7 @@ export class ApptListComponent implements OnInit {
       .subscribe((appointments: Appointment[]) => {
         this.appointments = appointments;
         this.loading = false;
+        this.error = false;
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;

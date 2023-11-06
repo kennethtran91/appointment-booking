@@ -17,7 +17,7 @@ export class AppointmentService {
   }
 
   createAppointment(appointmentDate: string, name: string, phone: number, time: string): Observable<Appointment> {
-    console.log({ appointmentDate, time, name, phone });
+    // console.log({ appointmentDate, time, name, phone, services });
     return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { appointmentDate, time, name, phone });
   }
 

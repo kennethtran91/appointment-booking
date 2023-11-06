@@ -18,6 +18,9 @@ import { Appointment } from '../appointment.interface';
   providers: [DatePipe], // Add DatePipe to providers
 })
 export class MainComponent {
+  public successMsg: string;
+  public errorMsg: string;
+
   currentDate = new Date();
   date: { year: number; month: number; } | undefined;
   model: NgbDateStruct | undefined;
@@ -38,17 +41,8 @@ export class MainComponent {
     const year = this.model?.year;
     const month = this.model?.month;
     const day = this.model?.day;
-    let formattedDate = month + "/" + day; //ugly but i'm dumb
+    let formattedDate = month + "/" + day + "/" + year; //ugly but i'm dumb
     let formattedTime = this.time.hour + ":" + this.time.minute;
-
-    const appointmentInfo = {
-      name: this.name,
-      phone: this.phone,
-      date: formattedDate,
-      time: this.time,
-      services: this.services
-    };
-    console.log(appointmentInfo.date);
 
     this.appointmentService.createAppointment(formattedDate, this.name, this.phone, formattedTime)
       .subscribe((createdAppointment: Appointment) => {
@@ -56,10 +50,10 @@ export class MainComponent {
         this.name = '';
         this.phone;
         formattedTime;
-        console.log("succeed")
+        this.successMsg = `Appointment Booked Successfully for` + this.name + `at` + formattedDate;
       },
       (error: ErrorEvent) => {
-        console.log("error")
+        this.errorMsg = error.error.message;
       });
   }
 }

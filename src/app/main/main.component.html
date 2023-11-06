@@ -1,83 +1,75 @@
-<span class="text-center text-primary p-2">
-  <h1>Appointments Booking <i class="fa fa-calendar" aria-hidden="true"></i></h1>
-</span>
+<div class="col-6 border m-2">
+  <span class="text-center text-primary p-2">
+    <h1>Appointments Booking <i class="fa fa-calendar" aria-hidden="true"></i></h1>
+  </span>
 
-<div class="col-12">
-  <!-- test accordion -->
-  <div ngbAccordion>
-    <div ngbAccordionItem [collapsed]="false">
-      <h2 ngbAccordionHeader>
-        <button ngbAccordionButton>Contact</button>
-      </h2>
-      <div ngbAccordionCollapse>
-        <div ngbAccordionBody>
-          <ng-template>
-            <div class="row">
-              <div class="col">
-                <input type="text" class="form-control" [(ngModel)]="name" placeholder="Your name">
+  <div class="col-12">
+    <!-- test accordion -->
+    <div ngbAccordion>
+      <div ngbAccordionItem [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>Contact</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template>
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" [(ngModel)]="name" placeholder="Your name">
+                </div>
+                <div class="col">
+                  <input type="tel" class="form-control" [(ngModel)]="phone" placeholder="Phone number">
+                </div>
               </div>
-              <div class="col">
-                <input type="tel" class="form-control" [(ngModel)]="phone" placeholder="Phone number">
-              </div>
-            </div>
-          </ng-template>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div ngbAccordionItem [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>Pick your date</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
+            <hr />
+            <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
+            <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
+          </div>
+        </div>
+      </div>
+      <div ngbAccordionItem [collapsed]="false">
+        <h2 ngbAccordionHeader>
+          <button ngbAccordionButton>Pick your time</button>
+        </h2>
+        <div ngbAccordionCollapse>
+          <div ngbAccordionBody>
+            <ng-template><ngb-timepicker [(ngModel)]="time"></ngb-timepicker></ng-template>
+          </div>
         </div>
       </div>
     </div>
-    <div ngbAccordionItem [collapsed]="false">
-      <h2 ngbAccordionHeader>
-        <button ngbAccordionButton>Pick your date</button>
-      </h2>
-      <div ngbAccordionCollapse>
-        <div ngbAccordionBody>
-          <ngb-datepicker #dp [(ngModel)]="model" (navigate)="date = $event.next"></ngb-datepicker>
-          <hr />
-          <button class="btn btn-sm btn-outline-primary mr-1" (click)="selectToday()">Select Today</button>
-          <button class="btn btn-sm btn-outline-primary me-2" (click)="dp.navigateTo()">To current month</button>
-        </div>
-      </div>
-    </div>
-    <div ngbAccordionItem [collapsed]="false">
-      <h2 ngbAccordionHeader>
-        <button ngbAccordionButton>Pick your time</button>
-      </h2>
-      <div ngbAccordionCollapse>
-        <div ngbAccordionBody>
-          <ng-template><ngb-timepicker [(ngModel)]="time"></ngb-timepicker></ng-template>
-        </div>
-      </div>
-    </div>
-    <div ngbAccordionItem [collapsed]="false">
-      <h2 ngbAccordionHeader>
-        <button ngbAccordionButton>Services</button>
-      </h2>
-      <div ngbAccordionCollapse>
-        <div ngbAccordionBody>
-          <ng-template>
-            <input type="text" class="form-control" [(ngModel)]="services" placeholder="What services do you want?">
-          </ng-template>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- close test accordion -->
+    <!-- close test accordion -->
 
-  <!-- footer -->
-  <div class="row mt-3 mb-3">
+    <!-- footer -->
+    <div class="row mt-3 mb-3">
 
-    <div class="col">
-      <button type="button" class="btn btn-primary" (click)="createAppointment()">Make Appointment</button>
-    </div>
-    <div class="col border">
-      <pre class="mb-3 mt-3 border-bottom">Booking Summary</pre>
-      <pre>Name: {{name}} </pre>
-      <pre>Phone: {{phone}} </pre>
-      <pre>Selected time: {{ time.hour }}:{{time.minute}}</pre>
-      <pre>Selected Date: {{ model?.month }}/{{ model?.day }} </pre>
-      <pre>Services: {{services}}</pre>
+      <div class="col">
+        <button type="button" class="btn btn-primary" (click)="createAppointment()">Make Appointment</button>
+      </div>
+      <div class="col border">
+        <pre class="mb-3 mt-3 border-bottom">Booking Summary</pre>
+        <pre>Name: {{name}} </pre>
+        <pre>Phone: {{phone}} </pre>
+        <pre>Selected time: {{ time.hour }}:{{time.minute}}</pre>
+        <pre>Selected Date: {{ model?.month }}/{{ model?.day }} </pre>
+      </div>
+
     </div>
 
+    <!-- footer -->
+    <mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+    <mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
   </div>
 
-  <!-- footer -->
 </div>
