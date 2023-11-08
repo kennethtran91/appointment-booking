@@ -10,7 +10,7 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class ApptListComponent implements OnInit {
   public appointments: Appointment[];
-  public columns = ['appointmentDate', 'time', 'name', 'phone', 'services', 'cancel'];
+  public columns = ['appointmentDate', 'time', 'name', 'phone', 'cancel'];
   public loading = true;
   public error = true;
   public errorMsg: string;

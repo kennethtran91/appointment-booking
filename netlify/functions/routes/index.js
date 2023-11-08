@@ -31,4 +31,3 @@ router.delete('/appointments/:id', (req, res, next) => {
 });
 
 module.exports = router;
-module.exports.handler = serverless(app);

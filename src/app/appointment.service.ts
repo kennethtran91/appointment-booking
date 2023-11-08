@@ -13,15 +13,15 @@ export class AppointmentService {
   private BASE_URL = environment.API_URL;
 
   getAppointments(): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(`${this.BASE_URL}/appointments`);
+    return this.http.get<Appointment[]>('/api/appointments');
   }
 
   createAppointment(appointmentDate: string, name: string, phone: number, time: string): Observable<Appointment> {
     // console.log({ appointmentDate, time, name, phone, services });
-    return this.http.post<Appointment>(`${this.BASE_URL}/appointments`, { appointmentDate, time, name, phone });
+    return this.http.post<Appointment>(`${this.BASE_URL}/api/appointments`, { appointmentDate, time, name, phone });
   }
 
   cancelAppointment(id: string): Observable<any> {
-    return this.http.delete(`${this.BASE_URL}/appointments/${id}`);
+    return this.http.delete(`${this.BASE_URL}/api/appointments/${id}`);
   }
 }
