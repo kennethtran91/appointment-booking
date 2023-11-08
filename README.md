@@ -26,3 +26,14 @@ One day, as I watched her struggle with her scheduling chaos, it dawned on me th
 
 4. Client Database
    BookMe! keeps a record of all clients and their appointment history, making it easy to track and maintain a client base.
+
+
+# How to run this app on your local machine
+
+1. Open cmd/terminal and run "git clone https://github.com/kennethtran91/appointment-booking.git"
+
+2.  cd to appointment-booking folder by running "cd appointment-booking"
+
+3.  install dependencies by running "npm i"
+
+4.  then run "npm run dev"
