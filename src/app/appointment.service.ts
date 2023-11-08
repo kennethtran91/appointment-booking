@@ -13,7 +13,7 @@ export class AppointmentService {
   private BASE_URL = environment.API_URL;
 
   getAppointments(): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>('/api/appointments');
+    return this.http.get<Appointment[]>(`${this.BASE_URL}/api/appointments`);
   }
 
   createAppointment(appointmentDate: string, name: string, phone: number, time: string): Observable<Appointment> {
